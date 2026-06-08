@@ -3,6 +3,7 @@ package org.example;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Functii {
 
@@ -14,7 +15,7 @@ public class Functii {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String linie;
             while ((linie = br.readLine()) != null) {
-                String[] bucati = linie.split(",");
+                String[] bucati = linie.split(" ");
 
                 String iso = bucati[0].trim();
                 String nume = bucati[1].trim();
@@ -48,12 +49,21 @@ public class Functii {
                 System.out.println("Eroare la scrierea in fisier: " + e.getMessage());
             }
         } else {
-            System.out.println("Utilizatorul a ales sa afiseze pe ecran");
+            System.out.println("Utilizatorul a ales sa afiseze pe ecran  "
+            );
             judete.forEach(judet -> System.out.println(judet));
         }
     }
 
 
+    public List<Judet> sorteazaDupaDensitate(List<Judet> judete) {
+        return judete.stream()
+                .sorted((j1, j2) -> Double.compare(
+                        (double) j2.getLocuitori() / j2.getSuprafata(),
+                        (double) j1.getLocuitori() / j1.getSuprafata()
+                ))
+                .collect(Collectors.toList());
+    }
 
 }
 

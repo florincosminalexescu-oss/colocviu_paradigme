@@ -1,0 +1,4 @@
+Judete citite din fisier
+Judet{ISO='GR', nume='Giurgiu', regiune='SudMuntenia', locuitori=262066, suprafata=3544}
+Judet{ISO='TM', nume='Timis', regiune='Vest', locuitori=650533, suprafata=8943}
+Judet{ISO='CS', nume='CarasSeverin', regiune='Vest', locuitori=64738, suprafata=6738}
